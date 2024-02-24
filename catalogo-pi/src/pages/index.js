@@ -1,3 +1,6 @@
+import CustomCard from "@/components/CustomCard";
+import Produto from "@/components/Produto";
+
 export default function Home() {
 
   const Teste01 = () => {
@@ -6,46 +9,33 @@ export default function Home() {
 
   return (
     <div className="row row-cols-1 row-cols-md-3 g-4">
-  <div className="col">
-    <div className="card h-100">
-      <img src="https://cdn-prod.mortalkombat.com/roster/liu-kang/body.png" className="card-img-top" alt="Liu Kang"/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+      <CustomCard id="liu-kang" titulo="Liu Kang" texto="texto" />
+      <CustomCard id="kung-lao" titulo="Kung Lao" texto="texto" />
+      <CustomCard id="raiden" titulo="Raiden" texto="texto" />
+      <CustomCard id="scorpion" titulo="Scorpion" texto="texto" />
     </div>
-  </div>
 
-  <div className="col">
-    <div className="card h-100">
-      <img src="https://cdn-prod.mortalkombat.com/roster/kung-lao/body.webp" className="card-img-top" alt="Kung Lao"/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
+axios
+    .get()
+    .then(())
 
-  <div className="col">
-    <div className="card h-100">
-      <img src="https://cdn-prod.mortalkombat.com/roster/raiden/body.webp" className="card-img-top" alt="Raiden"/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-
-  <div className="col">
-    <div className="card h-100">
-      <img src="https://cdn-prod.mortalkombat.com/roster/scorpion/body.webp" className="card-img-top" alt="Scorpion"/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-
+    return (
+      <div className="container-fluid mt-2">
+<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  {
+   <Produto 
+   key={index}
+   nome={dado.nome}
+   descricao={dado.descricao}
+   disponivel={dado.}disponivel
+   novidade={dado.novidade}
+   preco={dado.preco}
+    />
+  }
 </div>
+</div>
+
+    );
+
   );
 }
