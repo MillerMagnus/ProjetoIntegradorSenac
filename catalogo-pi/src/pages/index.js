@@ -1,5 +1,7 @@
-import CustomCard from "@/components/CustomCard";
+//import CustomCard from "@/components/CustomCard";
 import Produto from "@/components/Produto";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Home() {
 
@@ -7,35 +9,45 @@ export default function Home() {
     console.log("chegou aqui")
   }
 
-  return (
-    <div className="row row-cols-1 row-cols-md-3 g-4">
-      <CustomCard id="liu-kang" titulo="Liu Kang" texto="texto" />
-      <CustomCard id="kung-lao" titulo="Kung Lao" texto="texto" />
-      <CustomCard id="raiden" titulo="Raiden" texto="texto" />
-      <CustomCard id="scorpion" titulo="Scorpion" texto="texto" />
-    </div>
+//  return (
+//    <div className="row row-cols-1 row-cols-md-3 g-4">
+//      <CustomCard id="liu-kang" titulo="Liu Kang" texto="texto" />
+//      <CustomCard id="kung-lao" titulo="Kung Lao" texto="texto" />
+//      <CustomCard id="raiden" titulo="Raiden" texto="texto" />
+//      <CustomCard id="scorpion" titulo="Scorpion" texto="texto" />
+//    </div>
 
-axios
-    .get()
-    .then(())
+const [listaProduto, setListaProduto]= useState ([]);
+
+
+
+  useEffect(() => {
+    axios.get('https://localhost:7282/api/Produto')
+    .then(res =>{
+      setListaProduto(res.data);
+      console.log(res, listaProduto);
+    } )
+  })
 
     return (
       <div className="container-fluid mt-2">
 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
   {
-   <Produto 
-   key={index}
-   nome={dado.nome}
-   descricao={dado.descricao}
-   disponivel={dado.}disponivel
-   novidade={dado.novidade}
-   preco={dado.preco}
-    />
-  }
+    listaProduto.map((dado, index) => <Produto
+    key={index}
+    nome={dado.nome}
+    descricao={dado.descricao}
+    disponivel={dado.disponivel}
+    novidade={dado.novidade}
+    preco={dado.preco} />)
+}
+
+
+  
 </div>
 </div>
 
     );
 
-  );
+
 }
