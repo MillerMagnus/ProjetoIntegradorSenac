@@ -1,9 +1,12 @@
 //import CustomCard from "@/components/CustomCard";
+import Header from "@/components/Header";
 import Produto from "@/components/Produto";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+
+  
 
   const Teste01 = () => {
     console.log("chegou aqui")
@@ -27,23 +30,24 @@ useEffect(() => {
     setListaProduto(res.data);
     console.log(res, listaProduto);
   } )
-})
+},[])
 
 return (
+  <Header/>,
+
   <div className="container-fluid mt-2">
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       {
-        listaProduto.map((dado, index) => <Produto
-        key={index}
+        listaProduto.map((dado, index) => <Produto key={index}
         nome={dado.nome}
         descricao={dado.descricao}
         disponivel={dado.disponivel}
         novidade={dado.novidade}
+        imagem={dado.imagem}
         preco={dado.preco} />)
       }
     </div>
   </div>
 );
-
 
 }
