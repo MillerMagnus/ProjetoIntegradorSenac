@@ -32,11 +32,13 @@ useEffect(() => {
   } )
 },[])
 
+//"row row-cols-1 roW-cols-sm-2 row-cols-md-3 g-3"
+
 return (
-  <Header/>,
+  <Header nome="MarKet"/>,
 
   <div className="container-fluid mt-2">
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div className="row row-cols-1 row-cols-md-3 g-4">
       {
         listaProduto.map((dado, index) => <Produto key={index}
         nome={dado.nome}

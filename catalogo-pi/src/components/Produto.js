@@ -1,13 +1,13 @@
-import Image from "next/image";
+//import Image from "next/image";
 
 export default function Produto(props) {
     return (
-      <div className="col-3">
-        <div className="card shadow-sm">
+      <div className="col-sm-6 col-md-4 col-xl-3">
+        <div className={`card h-100 shadow-sm ${ props.novidade == true?"novidade":""}`}>
           <div
-            style={{ width: "100%", height: 400 }}
+            //style={{ width: "100%", height: 400 }}
           >
-            <img src={props.imagem} height={400} width={400} />
+            <img src={props.imagem} className={`card-img-top ${props.disponivel == false?"indisponivel":""}`} />
         </div>
           <div className="card-body">
             <div className="card-body">
@@ -28,7 +28,7 @@ export default function Produto(props) {
                 }
                
               </div>
-              <div className="text-end mt-3">
+              <div className="text-end mt-6">
                 <h3 className="text-body-secondary">
                   {props.preco}
                 </h3>
