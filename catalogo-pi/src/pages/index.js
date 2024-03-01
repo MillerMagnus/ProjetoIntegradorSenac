@@ -1,5 +1,5 @@
 //import CustomCard from "@/components/CustomCard";
-import Header from "@/components/Header";
+import BarraTitulo from "@/components/BarraTitulo";
 import Produto from "@/components/Produto";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -35,7 +35,8 @@ useEffect(() => {
 //"row row-cols-1 roW-cols-sm-2 row-cols-md-3 g-3"
 
 return (
-  <Header nome="MarKet"/>,
+  <>
+  <BarraTitulo nome="MarKet"/>
 
   <div className="container-fluid mt-2">
     <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -50,6 +51,7 @@ return (
       }
     </div>
   </div>
+  </>
 );
 
 }
