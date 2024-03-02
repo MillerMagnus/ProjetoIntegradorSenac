@@ -22,8 +22,6 @@ export default function Home() {
 
 const [listaProduto, setListaProduto]= useState ([]);
 
-
-
 useEffect(() => {
   axios.get('https://localhost:7282/api/Produto')
   .then(res =>{
@@ -31,13 +29,10 @@ useEffect(() => {
     console.log(res, listaProduto);
   } )
 },[])
-
 //"row row-cols-1 roW-cols-sm-2 row-cols-md-3 g-3"
-
 return (
   <>
   <BarraTitulo nome="MarKet"/>
-
   <div className="container-fluid mt-2">
     <div className="row row-cols-1 row-cols-md-3 g-4">
       {
@@ -53,5 +48,4 @@ return (
   </div>
   </>
 );
-
 }

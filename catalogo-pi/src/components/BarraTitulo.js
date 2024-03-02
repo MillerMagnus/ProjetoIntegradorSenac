@@ -21,7 +21,7 @@ export default function BarraTitulo(props) {
           </a>
           <ul className="dropdown-menu">
             <li><a className="dropdown-item" href="cadastro">Cadastro</a></li>
-            <li><hr class="dropdown-divider"/></li>
+            <li><hr className="dropdown-divider"/></li>
           </ul>
         </li>
         <li className="nav-item">
