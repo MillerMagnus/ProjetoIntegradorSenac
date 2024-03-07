@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function BarraTitulo(props) {
     return (
         <>
@@ -10,7 +12,7 @@ export default function BarraTitulo(props) {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Home</a>
+          <Link className="nav-link active" aria-current="page" href="/">Home</Link>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">Link</a>
@@ -20,7 +22,7 @@ export default function BarraTitulo(props) {
             Menu
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="cadastro">Cadastro</a></li>
+            <li><Link className="dropdown-item" href="/cadastro">Cadastro</Link></li>
             <li><hr className="dropdown-divider"/></li>
           </ul>
         </li>
@@ -29,8 +31,12 @@ export default function BarraTitulo(props) {
         </li>
       </ul>
       <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <input 
+        className="form-control me-2" 
+        type="search" 
+        placeholder="Pesquisa" 
+        aria-label="Search" 
+        onChange={props.pesquisar} />
       </form>
     </div>
   </div>
