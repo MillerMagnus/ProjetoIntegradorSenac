@@ -36,9 +36,9 @@ function handlePesquisar(filtro){
 //"row row-cols-1 roW-cols-sm-2 row-cols-md-3 g-3"
 return (
   <>
-  <BarraTitulo nome="MarKet" pesquisar={handlePesquisar}/>
+  <BarraTitulo nome="Home" pesquisar={handlePesquisar}/>
 
-  <div className="container-fluid mt-2">
+  <div className="container-fluid mt-2 corpo">
     <div className="row row-cols-1 row-cols-md-3 g-4">
       {
         listaProdutoFiltrado.map((dado, index) => <Produto key={index}

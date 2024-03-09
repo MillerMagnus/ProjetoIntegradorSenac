@@ -4,9 +4,10 @@ import CustomInputLabel from "@/components/CustomImputLabel";
 import CustomTextAreaLabel from "@/components/CustomTextAreaLabel";
 import axios from "axios";
 import { useState } from "react";
+import { useRouter } from 'next/router';
 
 export default function cadastro(){
-    
+    const router = useRouter();
     const [dadosProduto, setDadosProduto] = useState({
                                                         id: 0,
                                                         nome : "",
@@ -19,8 +20,18 @@ export default function cadastro(){
     function handleSalvar(){
         //aqui enviaremos o post pra API
         axios.post("https://localhost:7282/api/Produto", dadosProduto)
-            .then(res => console.log(res))     
-    }
+        .then((res) => {
+            console.log(res);
+            alert("Produto salvo com sucesso!");
+            // Resetar os dados do produto para o estado inicial
+            //router.reload();
+            router.push('/');
+        })
+        .catch((error) => {
+            console.error(error);
+            alert("Erro ao salvar o produto.");
+        });
+}
 
     function handleChange(e){
         //console.log(e.target.id, e.target.value)
@@ -40,7 +51,7 @@ export default function cadastro(){
     return (
         <>
         <BarraTitulo nome="MarKet"/>
-            <div className="container-fluid mt-2">
+            <div className="container-fluid mt-2 corpo2">
                 <div className="row">
                     <CustomInputLabel id="nome" onChange={handleChange} texto="Nome" col="8" />
                     <CustomInputLabel id="preco" onChange={handleChange} texto="Preço" col="4" />
@@ -51,7 +62,7 @@ export default function cadastro(){
                 </div>
                 <div className="row">
                     <div className="col-12">
-                        <button className="btn btn-primary" onClick={handleSalvar}>Salvar</button>
+                        <button className="btn btn-primary" onClick={handleSalvar}>Salvar</button> 
 
                     </div>
                 </div>

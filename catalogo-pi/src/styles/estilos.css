@@ -7,3 +7,47 @@
     background-color: rgba(180, 199, 252, 0.8) !important;
     
 }
+
+.corpo {
+    margin: 0;
+    overflow: hidden;
+    animation: oscilar 10s infinite linear; /* Ajuste a duração conforme necessário */
+    background-size: 200% 200%;
+  }
+
+  @keyframes oscilar {
+    0%, 100% {
+      background-position: 0% 50%;
+      background-color: black;
+    }
+    50% {
+      background-position: 100% 50%;
+      background-color: rgb(255, 0, 0);
+    }
+  }
+
+
+
+    @keyframes oscilar2 {
+      0%, 100% {
+        background-position: 0% 50%;
+        background-color: rgb(255, 255, 255);
+      }
+      50% {
+        background-position: 100% 50%;
+        background-color: rgb(108, 185, 230);
+      }
+
+
+  }
+
+  .barra {
+    background-color: rgb(236, 141, 141);
+  }
+
+  .corpo2 {
+    margin: 0;
+    overflow: hidden;
+    animation: oscilar2 10s infinite linear; /* Ajuste a duração conforme necessário */
+    background-size: 200% 200%;
+  }
