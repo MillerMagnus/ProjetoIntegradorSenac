@@ -17,7 +17,19 @@ export default function cadastro(){
                                                         disponivel : false, 
     })
 
+    
+
     function handleSalvar(){
+
+        // Verificar se os campos obrigatórios estão preenchidos
+    if (!dadosProduto.nome || !dadosProduto.descricao || !dadosProduto.preco) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return; // Impede o envio dos dados se algum campo estiver em branco
+    }
+
+        //trocar virgulas por ponto antes do insert
+        dadosProduto.preco = dadosProduto.preco.replace(".", "");
+        dadosProduto.preco = dadosProduto.preco.replace(",", ".");
         //aqui enviaremos o post pra API
         axios.post("https://localhost:7282/api/Produto", dadosProduto)
         .then((res) => {
