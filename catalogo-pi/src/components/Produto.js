@@ -1,6 +1,17 @@
 //import Image from "next/image";
 
 export default function Produto(props) {
+
+  // Função para formatar o número como moeda brasileira
+  const formatarMoeda = (valor) => {
+    return valor.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+  };
+
+
+
     return (
       <div className="col-sm-6 col-md-4 col-xl-3">
         <div className={`card h-100 shadow-sm ${ props.novidade == true?"novidade":""}`}>
@@ -30,7 +41,7 @@ export default function Produto(props) {
               </div>
               <div className="text-end mt-6">
                 <h3 className="text-body-secondary">
-                  {props.preco}
+                  {formatarMoeda(props.preco)}
                 </h3>
               </div>
             </div>
